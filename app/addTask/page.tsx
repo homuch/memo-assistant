@@ -31,7 +31,9 @@ async function addTask(data: FormData) {
       userId,
     },
   });
-  redirect("http://localhost:3000/");
+  redirect(
+    process.env.NODE_ENV === "production" ? "/" : `http://localhost:3000/`
+  );
 }
 
 export default function TaskAddPage({
